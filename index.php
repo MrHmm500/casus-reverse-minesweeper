@@ -17,9 +17,9 @@ foreach($testCases as $caseName => $caseData) {
     echo "<br />";
 }
 
-function extractOutputFromInput($blockArray) {
+function extractOutputFromInput($gridArray) {
     $bombs = [];
-    foreach ($blockArray as $y => $block) {
+    foreach ($gridArray as $y => $block) {
         foreach (str_split($block) as $x => $letter) {
             if ($letter == 'x') {
                 $bombs[] = $y . ' ' . $x;
@@ -28,7 +28,7 @@ function extractOutputFromInput($blockArray) {
     }
 
     $output = [];
-    foreach ($blockArray as $x => $row) {
+    foreach ($gridArray as $x => $row) {
         foreach (str_split($row) as $y => $row2) {
             $output[$x][$y] = '.';
             foreach([
